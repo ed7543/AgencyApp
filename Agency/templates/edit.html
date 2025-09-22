@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container">
+        <div class="row p-5">
+            <div class="col p-5">
+                <h1 class="p-5">Edit {{ house.name }}</h1>
+            </div>
+            <div class="col p-5">
+                <img src="{% static 'house3.jpg' %}" alt="" style="max-width: 500px">
+            </div>
+        </div>
+    </div>
+
+    <form method="post" style="width: 80%; margin: auto;" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+
+{% endblock %}

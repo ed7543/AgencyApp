@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="row p-5">
+            <div class="col p-5">
+                <h1 class="p-5">Arhitecture</h1>
+                <h1 class="text-body-tertiary px-5">Bureau</h1>
+            </div>
+            <div class="col p-5">
+                <img src="{% static 'house3.jpg' %}" alt="" style="max-width: 500px">
+            </div>
+        </div>
+        <div class="row p-5">
+            <div class="col">
+                <img src="{% static 'house4.jpg' %}" alt="" style="max-width: 500px">
+            </div>
+            <div class="col p-5">
+                <p class="text-body-tertiary p-5" style="max-width: 500px" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, at beatae debitis doloremque eius excepturi explicabo illo inventore ipsa ipsam modi necessitatibus nemo non provident quia quidem sapiente suscipit ut!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container ">
+    <div class="row p-5 justify-content-center">
+            <h1 class="text-center">We offer a variety of products</h1>
+            {% for house in houses %}
+                <div class="card" style="width: 18rem;">
+                  <img src="{{ house.image.url }}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ house.name }}</h5>
+                    <p class="card-text border-bottom border-black">{{ house.surface }}</p>
+                    <p class="card-text">{{ house.price }}</p>
+                    <a class="btn btn-dark" href="{% url 'edit' house.id %}">Edit</a>
+                  </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
